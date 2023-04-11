@@ -17,4 +17,15 @@ public class FizzBuzzTest {
     // Then
     Assertions.assertThat(actual).isEqualTo(expected);
   }
+  @Test
+  @DisplayName("Given number is one, FizzBuzz should return \"1\"")
+  public void given_2_should_return_2() {
+    // Given
+    int input = 2;
+    String expected = "2";
+    // When
+    String actual = FizzBuzz.fizzBuzz(input);
+    // Then
+    Assertions.assertThat(actual).isEqualTo(expected);
+  }
 }

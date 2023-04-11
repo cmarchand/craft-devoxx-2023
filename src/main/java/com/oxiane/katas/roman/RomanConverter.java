@@ -34,5 +34,19 @@ public class RomanConverter {
     return result;
   }
 
+  public static int convertToArabic(String roman) {
+    int result = 0;
+    while(!roman.isEmpty()) {
+      String finalRoman = roman;
+      Mapping current = Arrays.stream(mappings)
+          .filter(mapping -> finalRoman.startsWith(mapping.roman()))
+          .findFirst()
+          .orElseThrow();
+      result += current.arabic();
+      roman = roman.substring(current.roman().length());
+    }
+    return result;
+  }
+
   private record Mapping(int arabic, String roman) {}
 }
